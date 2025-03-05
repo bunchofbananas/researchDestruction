@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #131313;
+    color: #ffffffdb;
+    font-family: Courier, monospace;
+    filter: blur(0.5px);
+    text-shadow: -1px 0 2px rgba(0, 0, 255, 1), 0 -1px 3px rgba(255, 0, 0, 1), 1.5px 0 2px rgba(0, 255, 0, 1.5);
+
+    display: flex;
+}
+
+h3 {
+    font-size: 1.3rem;
+   
+    
+}
+
+h1 {
+    font-size: 1.7rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+.sidebar {
+    display: flex;
+    width: 23%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 20px;
+    overflow: visible;
+    background-color: rgb(0, 0, 0);
+    border-right: 2px dotted #fff;
+    overflow-y: auto;
+}
+
+.bio {
+    margin-top: -1rem;
+    font-size: .9rem;
+    padding: 2rem;
+    padding-right: 2.2rem;
+    text-align: justify;
+    align-content: center;
+}
+
+.spinner {
+    margin-top: -26rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4rem;
+    padding-bottom: 2rem;
+}
+
+.contact {
+    font-size: smaller;
+    padding-left: 1.6rem;
+}
+
+.glitchcontainer {
+    margin-right: 1rem;
+    padding-top: 2rem;
+}
+
+.maincontent {
+    display: flex;
+    flex-direction: column;
+    width: 77%; /* Fill the remaining space after the sidebar */
+    padding-left: 4rem;
+    padding-top:7rem;
+}
+
+.fullbodyvid {
+    padding: 2rem;
+    max-width: 500px;
+    
+}
+
+
+
+.individualpage{
+    padding-top: 5rem;
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* Pop-up effect for .content-item images */
+.content-item img {
+    cursor: pointer;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    padding-bottom: 2rem;
+}
+
+/* Scale up image in place when clicked */
+.content-item img:active {
+    transform: scale(1.6); /* Only 10% bigger */
+    z-index: 10; /* Ensure it's on top but not too high */
+    position: relative; /* Prevents it from moving far */
+}
+
+
+/* Prevent cropping in .content-item */
+.content-item:has(img:active) {
+    overflow: visible;
+}
+
+
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between sections */
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Default grid layout for half-half sections */
+.content-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-top: 2.5rem;
+    align-items: center;
+}
+
+/* Half-width text and images */
+.half-text, .half-image {
+    grid-column: span 1;
+}
+
+.half-image img {
+    max-width: 400px;   }
+
+
+
+.half-text {
+    text-align: left;
+    max-width: 90%;
+    padding-left: 0.5rem;
+}
+
+.half-text video {
+    max-width: 100%; /* Fit within the text container */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    box-sizing: border-box; /* Respect padding and borders */
+    padding-top: 4rem;
+}
+
+.full-text {
+    grid-column: span 2;
+    display: flex; /* Allows centering properly */
+    justify-content: center; /* Centers the text inside */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+
+.full-image {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.full-image img {
+    width: 100%;
+    max-width: 88%;
+    height: auto;
+    max-height: 500px; /* Set a maximum height */
+    margin: auto;
+}
+
+/* Reverse order for alternating layout */
+.reverse .half-text {
+    order: 2;
+    padding-left: 1rem;
+}
+
+.reverse .half-image {
+    order: 1;
+}
+
+/* Make images always fill their container */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
