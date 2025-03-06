@@ -224,11 +224,14 @@ h1 {
     min-width: 100%;
     box-sizing: border-box;
     overflow: visible;
+    
+    
 }
 
 .slide img {
     width: 100%;
     display: block;
+    
 }
 
 .carousel .carousel-buttons {
@@ -236,26 +239,26 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 10px; /* Space from the carousel */
+    margin-top: .1rem; /* Space from the carousel */
 }
 
 .carousel button {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px;
     cursor: pointer;
     z-index: 10;
     text-align: center;
+   
 }
 
 
 .prev {
-    left: 15px;
+    left: 25px;
 }
 
 .next {
-    right: 15px;
+    right: 25px;
 }
 
 

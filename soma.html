@@ -17,13 +17,54 @@
     <div class="individualpage">
         <h1>Soma 2019</h1>
         <p>Notre première collaboration a utilisé des moules 3D de nos visages, des superpositions corporelles et de la peinture verte pour brouiller et fusionner nos identités, tout en explorant l’affect et l’expression émotionnelle.</p>    
-<div class="somavid">
-        <div style="position:relative;padding-top:56.25%;"><iframe src="https://iframe.mediadelivery.net/embed/392646/d2e3cf6f-f410-4cff-9e09-9f285dc98229?autoplay=true&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>        
+
+        <div class="content-item full-image">
+            <!-- Responsive video container -->
+            
+            <div class="video-container">
+                <!-- Custom Thumbnail Overlay -->
+                <div class="video-thumbnail" onclick="playVideo()">
+                    <img src="somathumb.png" alt="Video Thumbnail" class="thumbnail-image">
+                    <div class="play-button">▶</div>
+                </div>
+                
+                <!-- Video iframe -->
+                <iframe id="videoIframe" 
+                        src="https://iframe.mediadelivery.net/embed/392646/d2e3cf6f-f410-4cff-9e09-9f285dc98229?autoplay=true&loop=false&muted=false&preload=true&responsive=true" 
+                        loading="lazy" 
+                        style="border:0;position:absolute;top:0;left:0;width:100%;height:100%;" 
+                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+                        allowfullscreen="true" 
+                        frameborder="0">
+                </iframe>
+            </div>
     
+    
+    
+        </div>
+
+
+
+
+
     </div>
 
-   </div>
-
-  
+<script>
+function playVideo() {
+    var iframe = document.getElementById('videoIframe');
+    var thumbnail = document.querySelector('.video-thumbnail');
+    
+    // Hide the thumbnail overlay
+    thumbnail.style.display = 'none';
+    
+    // Show the iframe and start playing
+    iframe.style.display = 'block';
+    
+    // Optionally, play the video directly if you can control autoplay
+    var iframeSrc = iframe.src;
+    iframe.src = iframeSrc + "&autoplay=true"; // Start video autoplay
+}
+</script>
+</script>
 </body>
 </html>
