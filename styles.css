@@ -42,7 +42,7 @@ h1 {
 }
 
 .bio {
-    margin-top: 13rem;
+    margin-top: 4rem;
     font-size: .9rem;
     padding: 2rem;
     padding-right: 2.2rem;
@@ -354,5 +354,6 @@ iframe {
     bottom: 0; /* Align the caption to the bottom of the image */
     width: 100%; /* Make the caption span the full width of the image */
     text-align: center;
+    padding-bottom: 2rem;
     
 }
