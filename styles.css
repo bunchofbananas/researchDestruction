@@ -30,44 +30,43 @@ h1 {
 }
 .sidebar {
     display: flex;
-    width: 23%;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding-top: 20px;
-    overflow: visible;
+    align-items: center; /* Centers all children horizontally */
+    justify-content: center; /* Centers everything vertically */
+    width: 23%;
+    height: 100vh; /* Make sidebar take full screen height */
+    padding: 20px;
     background-color: rgb(0, 0, 0);
     border-right: 2px dotted #fff;
     overflow-y: auto;
 }
 
-.bio {
-    margin-top: 4rem;
-    font-size: .9rem;
-    padding: 2rem;
-    padding-right: 2.2rem;
-    text-align: justify;
-    align-content: center;
+.glitchcontainer,
+.spinner,
+.bio,
+.contact {
+    width: 100%; /* Ensure content doesn't get squished */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers inside each section */
+    text-align: center; /* Ensures text is centered */
 }
 
-.spinner {
-    margin-top: -23rem;
-    justify-content: center;
-    align-items: center;
-    margin-left: 4rem;
-    padding-bottom: 2rem;
-    max-height: 100px;
+.spinner img {
+    max-width: 160px;
+    height: auto;
+}
+
+.bio {
+    font-size: 0.9rem;
+    padding: 2rem;
 }
 
 .contact {
     font-size: smaller;
-    padding-left: 1.6rem;
+    padding: 1rem;
 }
 
-.glitchcontainer {
-    margin-right: 1rem;
-    padding-top: 1rem;
-}
 
 .maincontent {
     display: flex;
@@ -332,7 +331,7 @@ h1 {
     position: absolute;
 }
 
-iframe {
+.videoIframe {
     position: absolute;
     top: 0;
     left: 0;

@@ -56,21 +56,22 @@
         
         <div class="video-container">
             <!-- Custom Thumbnail Overlay -->
-            <div class="video-thumbnail" onclick="playVideo()">
-                <img src="thumbnailbodymould.png" alt="Video Thumbnail" class="thumbnail-image">
-                <div class="play-button">▶</div>
+            <div class="video-thumbnail" onclick="playVideo(this)">
+              <img src="thumbnailbodymould.png" alt="Video Thumbnail" class="thumbnail-image">
+              <div class="play-button">▶</div>
             </div>
             
             <!-- Video iframe -->
-            <iframe id="videoIframe" 
+            <iframe class="videoIframe" 
                     src="https://iframe.mediadelivery.net/embed/392646/b1017086-0903-4fff-a9f6-48d7aed99afa?autoplay=true&loop=false&muted=false&preload=true&responsive=true" 
                     loading="lazy" 
-                    style="border:0;position:absolute;top:0;left:0;width:100%;height:100%;" 
+                    style="border:0;position:absolute;top:0;left:0;width:100%;height:100%;display: none;" 
                     allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
                     allowfullscreen="true" 
                     frameborder="0">
             </iframe>
-        </div>
+          </div>
+          
 
 
 
@@ -99,21 +100,36 @@
 </script>
 
 <script>
-    (function() {
-        document.querySelectorAll('.carousel').forEach(carousel => {
-            let carouselCurrentIndex = 0;
-            const slides = carousel.querySelector('.slides');
-            const totalSlides = slides.children.length;
-
-            function moveSlide(direction) {
-                carouselCurrentIndex = (carouselCurrentIndex + direction + totalSlides) % totalSlides;
-                slides.style.transform = `translateX(-${carouselCurrentIndex * 100}%)`;
+    function playVideo() {
+    // Select the iframe using its class
+    var iframe = document.querySelector('.videoIframe');
+    // Select the thumbnail overlay
+    var thumbnail = document.querySelector('.video-thumbnail');
+    
+    // Hide the thumbnail overlay if it exists
+    if (thumbnail) {
+        thumbnail.style.display = 'none';
+    } else {
+        console.error("Thumbnail element not found.");
+    }
+    
+    // Show the iframe and start playing the video
+    if (iframe) {
+        iframe.style.display = 'block';
+        // Append autoplay parameter if not already present
+        var iframeSrc = iframe.src;
+        if (iframeSrc.indexOf("autoplay=true") === -1) {
+            // Use proper query param formatting
+            if (iframeSrc.indexOf('?') > -1) {
+                iframe.src = iframeSrc + "&autoplay=true";
+            } else {
+                iframe.src = iframeSrc + "?autoplay=true";
             }
-
-            carousel.querySelector('.prev').addEventListener('click', () => moveSlide(-1));
-            carousel.querySelector('.next').addEventListener('click', () => moveSlide(1));
-        });
-    })();
+        }
+    } else {
+        console.error("Iframe element not found.");
+    }
+}
 </script>
 
 </body>
