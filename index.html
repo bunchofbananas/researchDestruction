@@ -12,16 +12,23 @@
 </head>
 <body>
 
-
+<!-- This is the main content of the page -->
         <div class="sidebar">
 
 
+            
+
         <div class="glitchcontainer">
    
-        <iframe src="glitch.html" width="100%" height="600px" frameborder="0"></iframe>
+        <iframe src="glitch.html" width="100%" height="auto" frameborder="0"></iframe>
 
           </div>
    
+
+
+
+
+
 
 <div class="spinner">
 
@@ -52,15 +59,122 @@
 
 
     <div class="maincontent">
-        <h3>Projet actuel : moulage du corps entier</h3>
+        <h3>Projet actuel : moulage corporel entier</h3>
 
-        <div class="fullbodyvid">
-        <iframe src="https://drive.google.com/file/d/1J6Td1rzzdubsE0XQuSxmBeCv-g3Q0PuI/preview" width="640" height="480" allow="autoplay"></iframe>
+        <div class="content-item">
+          <div class="half-text">
+              <p> Notre projet le plus ambitieux à date: une tentative de moulage corporel de la tête aux pieds. Une expérience d’apprentissage qui a raffiné nos protocoles et nous a permis d’utiliser pour la première fois un procédé de silicone rempli de mousse comme méthode de coulage. Possiblement le premier moulage corporel entier documenté (et on comprend maintenant pourquoi).</p>
+                  <br> <br>
+                  
+                  <div class="smalltext">  Modèle : Nada<br>
+                  Moulage : illiez<br>
+                  Collaboratrice technique : Mayson Rain <br>
+                  Collaboratrice technique : Dayana Matasheva <br>
+                  Documentation : Edson Niebla et Dayana Matasheva <br>
+                  Soutenu par le Conseil des arts du Canada
+              </p> </div>
+          </div>
+  
+          <div class="half-image">
+              <div class="carousel">
+                  <div class="slides">
+                      <div class="slide"><img src="fullbody/fullbodycast.jpg" alt="Image 1"></div>
+                      <div class="slide"><img src="fullbody/body cast.jpg" alt="Image 2"></div>
+                      <div class="slide"><img src="fullbody/castlegs.jpg" alt="Image 3"></div>
+                      <div class="slide"><img src="fullbody/bodyhalf.jpg" alt="Image 4"></div>
+                  </div>
+  <div class="carousel-buttons">
+                  <button class="prev">&#10094;</button>
+                  <button class="next">&#10095;</button>
+              </div>
+  
+              </div>
+          </div>
+      </div>
+  
+  
+      <div class="content-item full-image">
+          <!-- Responsive video container -->
+          
+          <div class="video-container">
+              <!-- Custom Thumbnail Overlay -->
+              <div class="video-thumbnail" onclick="playVideo(this)">
+                <img src="thumbnailbodymould.png" alt="Video Thumbnail" class="thumbnail-image">
+                <div class="play-button">▶</div>
+              </div>
+              
+              <!-- Video iframe -->
+              <iframe class="videoIframe" 
+                      src="https://iframe.mediadelivery.net/embed/392646/b1017086-0903-4fff-a9f6-48d7aed99afa?autoplay=true&loop=false&muted=false&preload=true&responsive=true" 
+                      loading="lazy" 
+                      style="border:0;position:absolute;top:0;left:0;width:100%;height:100%;display: none;" 
+                      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+                      allowfullscreen="true" 
+                      frameborder="0">
+              </iframe>
+            </div>
+            
+  
+  
+  
+      </div>
+  
+      <div class="spacer"></div>
+  </div>
+
+
     </div>
 
 
 
-    </div>
 
+    <script>function playVideo() {
+      var iframe = document.getElementById('videoIframe');
+      var thumbnail = document.querySelector('.video-thumbnail');
+      
+      // Hide the thumbnail overlay
+      thumbnail.style.display = 'none';
+      
+      // Show the iframe and start playing
+      iframe.style.display = 'block';
+      
+      // Optionally, play the video directly if you can control autoplay
+      var iframeSrc = iframe.src;
+      iframe.src = iframeSrc + "&autoplay=true"; // Start video autoplay
+  }
+  </script>
+  
+  <script>
+      function playVideo() {
+      // Select the iframe using its class
+      var iframe = document.querySelector('.videoIframe');
+      // Select the thumbnail overlay
+      var thumbnail = document.querySelector('.video-thumbnail');
+      
+      // Hide the thumbnail overlay if it exists
+      if (thumbnail) {
+          thumbnail.style.display = 'none';
+      } else {
+          console.error("Thumbnail element not found.");
+      }
+      
+      // Show the iframe and start playing the video
+      if (iframe) {
+          iframe.style.display = 'block';
+          // Append autoplay parameter if not already present
+          var iframeSrc = iframe.src;
+          if (iframeSrc.indexOf("autoplay=true") === -1) {
+              // Use proper query param formatting
+              if (iframeSrc.indexOf('?') > -1) {
+                  iframe.src = iframeSrc + "&autoplay=true";
+              } else {
+                  iframe.src = iframeSrc + "?autoplay=true";
+              }
+          }
+      } else {
+          console.error("Iframe element not found.");
+      }
+  }
+  </script>
 </body>
 </html>
