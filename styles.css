@@ -370,3 +370,82 @@ h1 {
 
 
 
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: 50vh;
+        border-right: none;
+        border-bottom: 2px dotted #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        padding-top: 10rem;
+        overflow: hidden;
+        
+    }
+
+    .maincontent {
+        width: 100%;
+        padding-top: 3rem;
+        padding-left:1rem;
+        padding-right: 1rem;
+    }
+
+    .content-item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .half-text, .half-image {
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Ensure glitchcontainer takes full width */
+    .glitchcontainer {
+        position: absolute;
+        top: 6%;
+        left: -12%;
+        transform: scale(1.2); /* Make the element 50% larger */
+    }
+
+    /* Position spinner on top of iframe */
+    .spinner {
+        position: absolute;
+        top: 5%;
+        left: 77%;
+        transform: translate(-50%, 0);
+        z-index: 2;
+        max-width: 5.2rem; /* Make spinner smaller */
+    }
+
+    .spinner img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
