@@ -33,7 +33,7 @@ h1 {
     flex-direction: column;
     align-items: center; /* Centers all children horizontally */
     justify-content: flex-start; /* Centers everything vertically */
-    width: 23%;
+    width: 20%;
     min-height: 160vh; /* Make sidebar take full screen height */
     padding: 1rem;
     background-color: rgb(0, 0, 0);
@@ -79,8 +79,28 @@ h1 {
     flex-direction: column;
     width: 60%; /* Fill the remaining space after the sidebar */
     margin: auto;
-    padding-top: 4rem;
+    padding-top: 1.5rem;
 }
+
+
+.nav-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 3rem;
+  
+  
+}
+.nav-item {
+    list-style-type: none;
+    
+
+    
+}
+
+
+
+
 
 .fullbodyvid {
     padding: 2rem;
