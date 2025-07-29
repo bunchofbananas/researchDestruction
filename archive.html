@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <link rel="stylesheet" href="styles.css">
+
+
+ <title>Portfolio Timeline</title>
+ <style>
+   body {
+     margin: 0;
+     padding: 0;
+    
+   }
+
+  nav {
+  position: fixed;
+  top: 1vh;
+  left: 0;
+  width: 100%;
+  height: 6vh;            /* ← pick a height that matches your padding/font-size combo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-sizing: border-box;
+  list-style: none;
+  gap: 5vh;
+}
+nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+nav a {       /* force white text */
+  font-size: 2.8vh;             /* big enough to see */
+  position: relative;            /* ensure they’re on top */
+  z-index: 1001;                /* above your slides */
+}
+
+
+
+
+
+
+
+   .container {
+  display: flex;
+
+           /* ← fill the rest of the viewport */
+}
+
+
+
+   .timeline {
+     position: fixed;
+     left: 5vw;
+     top: 50vh;
+     transform: translateY(-50%);
+     display: flex;
+     flex-direction: column;
+     gap: 2vh;
+     z-index: 10;
+   }
+
+
+  
+   .year {
+     cursor: pointer;
+     opacity: 0.4;
+     transform: scale(0.9);
+     transition: all 0.3s ease;
+     text-align: center;
+   }
+
+
+   .year.active {
+     opacity: 1;
+     transform: scale(1.1);
+   }
+  
+
+
+   .content-area {
+     margin-left: 12vw;
+    
+     width: calc(100vw - 12vw);
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+   }
+
+
+   .year-content {
+     display: none;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+
+   .year-content.active {
+     display: flex;
+   }
+
+
+   .slideshow-wrapper {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 80vw;
+     max-width: 90vw;
+     height: 50vh;
+     gap: 2vw;
+   }
+
+
+   .slideshow-container {
+     width: 70vw;
+     height: 100%;
+     overflow: hidden;
+     position: relative;
+   }
+
+
+   .slide {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+     position: absolute;
+     top: 0;
+     left: 0;
+     opacity: 0;
+     transition: opacity 0.5s ease;
+   }
+
+
+  
+   .slide.active {
+     opacity: 1;
+     z-index: 1;
+   }
+
+
+   .arrow {
+     background: rgba(0, 0, 0, 0.4);
+     color: white;
+     padding: 2vh 1.5vw;
+     cursor: pointer;
+     font-size: 4vh;
+     border-radius: 1vh;
+     user-select: none;
+     filter: blur(0.5px);
+   text-shadow: -1px 0 2px rgba(0, 0, 255, 1), 0 -1px 3px rgba(255, 0, 0, 1), 1.5px 0 2px rgba(0, 255, 0, 1.5);
+   }
+
+
+   .arrow:hover {
+ transform: scale(1.1);
+ background: rgba(0, 0, 0, 0.6);
+ filter: blur(0.2px);
+}
+
+
+.arrow:active {
+ transform: scale(0.95);
+ background: rgba(255, 255, 255, 0.1);
+}
+
+
+   .description {
+     margin-top: 2vh;
+     max-width: 80%;
+     text-align: center;
+     font-size: 2vh;
+   }
+
+
+   .slide.video {
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+}
+
+.smalltext {
+  padding-top: 1.9vh;
+  font-size: 1.8vh;
+  text-align: left;
+}
+
+ </style>
+</head>
+<body>
+
+
+
+        <nav>
+              <li><a href="index.html">home</a></li>
+              <li><a href="#services">services</a></li>
+              <li><a href="#shop">shop</a></li>
+              <li><a href="#quotes">quotes</a></li>
+              <li><a href="#about">about</a></li>
+            </ul>
+          </nav>
+ 
+
+  <div class="container">
+
+    
+    <div class="timeline" id="timeline">
+      <div class="year active" data-year="2025">2025</div>
+      <div class="year" data-year="2024">2024</div>
+      <div class="year" data-year="2019">2019</div>
+    </div>
+
+    <div class="content-area" id="contentArea">
+
+      <!-- 2025 Section -->
+      <div class="year-content active" data-year="2025">
+        <div class="slideshow-wrapper">
+          <!-- Left arrow (optional) -->
+          <div class="arrow left">&#10094;</div>
+          <div class="slideshow-container">
+            <!-- Insert your 2025 images here -->
+            <img class="slide active" src="fullbody/fullbodycast.jpg" alt="Full body silicone mold, head to feet, 2025, Montreal-based project" />
+            <img class="slide" src="fullbody/body cast.jpg" alt="Body cast in progress, 2025, Montreal-based project" />
+            <img class="slide" src="fullbody/castlegs.jpg" alt="Legs being cast in silicone, 2025, Montreal-based project" />
+            <img class="slide" src="fullbody/bodyhalf.jpg" alt="Additional body casting process, 2025, Montreal-based project" />
+            </div>
+          <!-- Right arrow (optional) -->
+          <div class="arrow right">&#10095;</div>
+        </div>
+        <div class="description">
+          <h2>full body mold</h2><br>
+          <p>we began 2025 by making a full body silicone mold of nada (top of the head to the soles of the feet).</p>
+
+          <div class="smalltext">
+            model: nada<br>
+            molding: illiez<br>
+            technical collaborator: Mayson Rain<br>
+            technical collaborator: Dayana Matasheva<br>
+            documentation: Edson Niebla and Dayana Matasheva<br>
+            supported by the Canada Council for the Arts
+          </div>
+      </div>
+      </div>
+
+      <!-- 2024 Section -->
+      <div class="year-content" data-year="2024">
+        <div class="slideshow-wrapper">
+          <div class="arrow left">&#10094;</div>
+          <div class="slideshow-container">
+            <!-- Insert your 2024 images here -->
+            <img class="slide active" src="partials/head.jpg" alt="2024 head lifecast silicone mold" />
+            <img class="slide" src="partials/pregbelly.jpg" alt="2024 pregnant belly lifecast silicone mold" />
+            <img class="slide" src="partials/torso.jpg" alt="2024 torso lifecast silicone mold" />
+          </div>
+          <div class="arrow right">&#10095;</div>
+        </div>
+        <div class="description">
+           <h2>partial body molds</h2><br>
+          <p>before tackling the full body mold, we created partial body molds, including a head, a torso, a pregnant belly, a leg, and an arm.</p> </div>
+      </div>
+
+      <!-- 2019 Section (Video) -->
+      <div class="year-content" data-year="2019">
+        <!-- No arrows for video-only section -->
+        <div class="slideshow-wrapper">
+          <div class="slideshow-container">
+            <!-- Video slide -->
+            <div class="slide active">
+              <div class="video-container">
+                <!-- Thumbnail overlay -->
+                <div class="video-thumbnail" onclick="playVideo(this)">
+                  <img src="somathumb.png" alt="Video Thumbnail" class="thumbnail-image">
+                  <div class="play-button">▶</div>
+                </div>
+                <!-- Video iframe -->
+                <iframe class="videoIframe"
+                  src="https://iframe.mediadelivery.net/embed/392646/d2e3cf6f-f410-4cff-9e09-9f285dc98229?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+                  loading="lazy"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="description">
+          <h2>soma</h2> <br>
+          <p>our first collaboration – where we projection-mapped videos of ourselves over 3D prints of our faces. green paint was used to dissolve and reshuffle the corporal – and to blur where one body began and ended.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Year navigation
+    document.querySelectorAll('.year').forEach(year => {
+      year.addEventListener('click', () => {
+        document.querySelectorAll('.year').forEach(y => y.classList.remove('active'));
+        year.classList.add('active');
+        const sel = year.dataset.year;
+        document.querySelectorAll('.year-content').forEach(c => {
+          c.classList.toggle('active', c.dataset.year === sel);
+        });
+      });
+    });
+
+
+
+    // Slideshow logic (2025 & 2024)
+  document.querySelectorAll('.year-content').forEach(section => {
+    // grab *all* slides (images OR divs) in this container
+    const slides = section.querySelectorAll('.slideshow-container .slide');
+    let idx = 0;
+
+    // show slide #i, hide the others
+    function showSlide(i) {
+      slides.forEach((s, j) => {
+        s.classList.toggle('active', j === i);
+      });
+    }
+
+    // cache arrows
+    const left  = section.querySelector('.arrow.left');
+    const right = section.querySelector('.arrow.right');
+
+    if (left && right && slides.length > 1) {
+      left.addEventListener('click', () => {
+        idx = (idx - 1 + slides.length) % slides.length;
+        showSlide(idx);
+      });
+      right.addEventListener('click', () => {
+        idx = (idx + 1) % slides.length;
+        showSlide(idx);
+      });
+
+      // auto‑advance every 10s—but only when this year is active
+      setInterval(() => {
+        if (section.classList.contains('active')) {
+          idx = (idx + 1) % slides.length;
+          showSlide(idx);
+        }
+      }, 5000);
+    }
+  });
+
+
+
+
+
+    // Video play function
+    function playVideo(el) {
+      const container = el.closest('.video-container');
+      el.style.display = 'none';
+      const iframe = container.querySelector('.videoIframe');
+      iframe.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
