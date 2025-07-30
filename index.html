@@ -72,24 +72,22 @@
  
 
         
-        <h3>Current project : full-body mold</h3>
+        
 
 
         <div class="content-item">
           <div class="half-text">
-              <p> Our most ambitious project to date: an attempt at a full-body cast from head to toe. A learning experience that refined our protocols and allowed us to use, for the first time, a silicone-and-foam casting method. Possibly the first fully documented full-body mold (and now we understand why).</p>
-                  <br> <br>
+              <p>we are currently in the process of setting up a dedicated space for moldmaking and casting. </p> <br>
+
+<p>reach out if you’d like to collaborate or support</p>
+                  <br> 
                   
-                  <div class="smalltext">  Modèle: Nada<br>
-                    Casting: illiez<br>
-                    Technical collaborator: Mayson Rain<br>
-                    Technical collaborator: Dayana Matasheva<br>
-                    Documentation: Edson Niebla and Dayana Matasheva<br>
-                    Supported by the Canada Council for the Arts
-                    </p> </div>
+                
                     
           </div>
+          </div>
   
+           <div class="content-item">
           <div class="half-image">
               <div class="carousel">
                   <div class="slides">
@@ -107,7 +105,8 @@
           </div>
       </div>
   
-  
+
+
       <div class="content-item full-image">
           <!-- Responsive video container -->
           
@@ -137,6 +136,17 @@
       <div class="spacer"></div>
   </div>
 
+
+<!-- This one fades in after 4s -->
+<div id="floatingWindow1" class="floating-window">
+   <h4>SHOP</h4>
+   <p>coming soon </p>
+ </div>
+  <!-- This one is always there -->
+ <div id="floatingWindow2" class="floating-window">
+    <h4>SERVICES</h4>
+   <p>coming soon </p>
+ </div>
 
     </div>
 
@@ -191,5 +201,46 @@
       }
   }
   </script>
+
+  ​​<script>
+   // Get both windows
+   const window1 = document.getElementById("floatingWindow1");
+   const window2 = document.getElementById("floatingWindow2");
+    // Show only the first window after 4 seconds
+   window.addEventListener("load", () => {
+     setTimeout(() => {
+       window1.style.display = "block";
+       // If using fade-in effect via CSS class
+       setTimeout(() => {
+         window1.classList.add("visible");
+       }, 50);
+     }, 4000);
+   });
+    // Make both windows draggable
+   [window1, window2].forEach(windowEl => {
+     let offsetX = 0, offsetY = 0, isDragging = false;
+      windowEl.addEventListener("mousedown", (e) => {
+       // Prevent dragging when clicking inside interactive elements
+       if (e.target.closest('a, button, input, textarea, select')) return;
+        isDragging = true;
+       offsetX = e.clientX - windowEl.offsetLeft;
+       offsetY = e.clientY - windowEl.offsetTop;
+       document.body.style.userSelect = "none";
+     });
+      document.addEventListener("mousemove", (e) => {
+       if (isDragging) {
+         windowEl.style.left = (e.clientX - offsetX) + "px";
+         windowEl.style.top = (e.clientY - offsetY) + "px";
+       }
+     });
+      document.addEventListener("mouseup", () => {
+       isDragging = false;
+       document.body.style.userSelect = "";
+     });
+   });
+ </script>
+
+
+
 </body>
 </html>
