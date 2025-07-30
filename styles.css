@@ -360,7 +360,7 @@ nav ul {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    z-index: 1; /* Ensure it's on top of the video */
+    z-index: 2; /* Ensure it's on top of the video */
 }
 
 .thumbnail-image {
@@ -373,7 +373,7 @@ nav ul {
 .play-button {
     font-size: 48px;
     color: white;
-    z-index: 2; /* Ensures the play button is visible */
+    z-index: 3; /* Ensures the play button is visible */
     position: absolute;
 }
 
@@ -424,7 +424,7 @@ nav ul {
    cursor: grabbing;
  }
   #floatingWindow1 {
-   top: 70vh;
+   top: 60vh;
    left: 65vw;
    display: none;
  }

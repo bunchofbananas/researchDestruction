@@ -7,7 +7,7 @@
  <link rel="stylesheet" href="styles.css">
 
 
- <title>Portfolio Timeline</title>
+ <title>Research-Destruction Archive</title>
  <style>
    body {
      margin: 0;
@@ -180,17 +180,44 @@ nav a {       /* force white text */
    }
 
 
-   .slide.video {
-  position: relative;
-  opacity: 1;
-  z-index: 1;
-}
+   
 
 .smalltext {
   padding-top: 1.9vh;
   font-size: 1.8vh;
   text-align: left;
 }
+
+/* 1) Make the video-slide act exactly like your image slides */
+.slide.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* after your existing CSS */
+.slide.video.active {
+  z-index: 2;
+}
+
+/* 2) Force the video-container to fill the slide */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 3) Ensure thumbnail fully covers before play */
+.video-thumbnail {
+  z-index: 2;
+}
+
 
  </style>
 </head>
@@ -199,6 +226,7 @@ nav a {       /* force white text */
 
 
         <nav>
+          <ul>
               <li><a href="index.html">home</a></li>
               <li><a href="#services">services</a></li>
               <li><a href="#shop">shop</a></li>
@@ -225,7 +253,32 @@ nav a {       /* force white text */
           <div class="arrow left">&#10094;</div>
           <div class="slideshow-container">
             <!-- Insert your 2025 images here -->
-            <img class="slide active" src="fullbody/fullbodycast.jpg" alt="Full body silicone mold, head to feet, 2025, Montreal-based project" />
+
+
+           <div class="slide video active">
+  <div class="video-container">
+    <div class="video-thumbnail" onclick="playVideo(this)">
+      <img src="thumbnailbodymould.png" alt="Video Thumbnail" class="thumbnail-image" />
+      <div class="play-button">▶</div>
+    </div>
+    <iframe class="videoIframe"
+            src="https://iframe.mediadelivery.net/embed/392646/b1017086-0903-4fff-a9f6-48d7aed99afa?loop=false&muted=false&preload=true&responsive=true"
+            loading="lazy"
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+            allowfullscreen
+            frameborder="0">
+    </iframe>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+            <img class="slide" src="fullbody/fullbodycast.jpg" alt="Full body silicone mold, head to feet, 2025, Montreal-based project" />
             <img class="slide" src="fullbody/body cast.jpg" alt="Body cast in progress, 2025, Montreal-based project" />
             <img class="slide" src="fullbody/castlegs.jpg" alt="Legs being cast in silicone, 2025, Montreal-based project" />
             <img class="slide" src="fullbody/bodyhalf.jpg" alt="Additional body casting process, 2025, Montreal-based project" />
@@ -342,12 +395,7 @@ nav a {       /* force white text */
       });
 
       // auto‑advance every 10s—but only when this year is active
-      setInterval(() => {
-        if (section.classList.contains('active')) {
-          idx = (idx + 1) % slides.length;
-          showSlide(idx);
-        }
-      }, 5000);
+      
     }
   });
 

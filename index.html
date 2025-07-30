@@ -90,10 +90,13 @@
           <div class="half-image">
               <div class="carousel">
                   <div class="slides">
-                      <div class="slide"><img src="fullbody/fullbodycast.jpg" alt="Image 1"></div>
-                      <div class="slide"><img src="fullbody/body cast.jpg" alt="Image 2"></div>
-                      <div class="slide"><img src="fullbody/castlegs.jpg" alt="Image 3"></div>
-                      <div class="slide"><img src="fullbody/bodyhalf.jpg" alt="Image 4"></div>
+                    <div class="slide"><img src="partials/head.jpg" alt="Silicone mold head lifecast"></div>
+                    <div class="slide"><img src="fullbody/fullbodycast.jpg" alt="Silicone mold full body lifecast"></div>
+                    <div class="slide"><img src="fullbody/body cast.jpg" alt="Silicone mold body lifecast"></div>
+                    <div class="slide"><img src="fullbody/castlegs.jpg" alt="Silicone mold legs lifecast"></div>
+                    <div class="slide"><img src="fullbody/bodyhalf.jpg" alt="Silicone mold half body lifecast"></div>
+                    <div class="slide"><img src="partials/torso.jpg" alt="Silicone mold torso lifecast"></div>
+                
                   </div>
   <div class="carousel-buttons">
                   <button class="prev">&#10094;</button>
@@ -150,6 +153,39 @@
     </div>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.carousel').forEach(function(carousel) {
+        const slidesContainer = carousel.querySelector('.slides');
+        const slideItems = carousel.querySelectorAll('.slide');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const totalSlides = slideItems.length;
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        prevButton.addEventListener('click', function() {
+            showSlide(currentIndex - 1);
+        });
+
+        nextButton.addEventListener('click', function() {
+            showSlide(currentIndex + 1);
+        });
+
+        showSlide(currentIndex);
+    });
+});
+</script>
 
 
     <script>function playVideo() {
@@ -213,7 +249,7 @@
        setTimeout(() => {
          window1.classList.add("visible");
        }, 50);
-     }, 4000);
+     }, 2000);
    });
     // Make both windows draggable
    [window1, window2].forEach(windowEl => {
